@@ -52,10 +52,15 @@ The machine file is structured as follows:
 - The fourth line onwards contains the transition functions formatted as `q,g->q,g,m` where `q` is in `Q`, `g` is in `G`, and `m` is either `L` or `R`. Each transition function is separated by a newline.
 - There must be an empty newline at the end
 
-[sample.in](sample.in) is provided as an example of a valid machine file for a TM that decides strings of the form 0^(2^n).
+### Examples
+
+The [examples](examples) folder has a few valid machine files.
+- [1.in](examples/1.in) has a Turing Machine that recognises strings of the form `0^(2^n)`.
+- [2.in](examples/2.in) recognises the same binary string `w` delimited by `#` i.e. `w#w`
 
 ### Caveats
 - The states `q_0`, `q_acc`, `q_rej` are all already included in the machine by default.
 - If the machine gets stuck on a transition i.e. given a state and symbol, there is no next state and symbol, it is implicitly taken to go to the `q_rej` state.
+- Blank tape symbols are represented in code as `\0`. In the machine file, they are denoted as skipping the symbol. For example, `q_4,->q_1,,R` means "from state `q_4` reading a blank tape symbol, write a blank tape symbol, move the pointer to the right, and go to state `q_1`/.
 - The list of states and alphabet is actually not used currently, allowing for "unregistered" states and symbols to be used in the transitions.
 - In the current version, the machine file is still sensitive to whitespaces, so follow the format closely.

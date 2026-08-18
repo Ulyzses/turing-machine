@@ -1,0 +1,25 @@
+tm - this tm decides strings of the form w#w where w in {0, 1}*
+q_1,q_2,q_3,q_4,q_5,q_6,q_7
+0,1,#
+q_0,0->q_1,x,R
+q_0,1->q_2,x,R
+q_0,#->q_7,#,R
+q_1,0->q_1,0,R
+q_1,1->q_1,1,R
+q_1,#->q_3,#,R
+q_2,0->q_2,0,R
+q_2,1->q_2,1,R
+q_2,#->q_4,#,R
+q_3,x->q_3,x,R
+q_3,0->q_5,x,L
+q_4,x->q_4,x,R
+q_4,1->q_5,x,L
+q_5,0->q_5,0,L
+q_5,1->q_5,1,L
+q_5,x->q_5,x,L
+q_5,#->q_6,#,L
+q_6,0->q_6,0,L
+q_6,1->q_6,1,L
+q_6,x->q_0,x,R
+q_7,x->q_7,x,R
+q_7,->q_acc,,R
